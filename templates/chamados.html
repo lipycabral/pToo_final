@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="fechar" onclick="fechar()">
+		<i class="close material-icons">close</i>Fechar
+	</div>
+	<h1>Bairros</h1>
+
+
+	<div class="row">
+		{% for i in pontos %}
+			<div class="col s4">
+				<div class="card">
+
+					<div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4 center-align total">
+                                    <h5 style="text-transform: uppercase!important;"
+                                        class="truncate">{{ i.titulo }}</h4>
+
+
+
+	                                    {% if ultimo.nivel > i.altura %}
+		                                    <p class="rodape-box">
+                                                <a class="waves-effect waves-light btn red darken-2 bt-rdp total"><i
+		                                                class="material-icons left">error_outline</i>Emitir Alerta!</a>
+                                            </p>
+	                                    {% else %}
+		                                    <p class="rodape-box">
+                                                <a class="waves-effect waves-light btn red darken-2 bt-rdp total disabled"><i
+		                                                class="material-icons left">error_outline</i>Emitir Alerta!</a>
+                                            </p>
+	                                    {% endif %}
+
+					</div>
+					<div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">{{ i.titulo }}<i
+		                            class="material-icons right">close</i></span>
+
+						<p class="content-ocorrencia">{{ i.denuncia }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $(".total").click(function () {
+            alert("Alerta emitido para todos do bairro ");
+        });
+    });
+
+</script>
